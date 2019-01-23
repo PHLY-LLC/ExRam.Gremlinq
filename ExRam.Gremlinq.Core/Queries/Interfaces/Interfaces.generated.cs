@@ -1120,71 +1120,38 @@ namespace ExRam.Gremlinq.Core
         
 
     
-            public partial interface IOrderedValueGremlinQuery<TElement>
-        {
-            new IOrderedValueGremlinQuery<TElement> ThenBy(Expression<Func<TElement, object>> projection);
-            new IOrderedValueGremlinQuery<TElement> ThenByDescending(Expression<Func<TElement, object>> projection);
-        }
+    
+        public partial interface IOrderedValueGremlinQuery<TElement> : IFluentTypedOrdered<TElement, IOrderedValueGremlinQuery<TElement>> { }
 
-              public partial interface IOrderedArrayGremlinQuery<TArray, TQuery>
-        {
-            new IOrderedArrayGremlinQuery<TArray, TQuery> ThenBy(Expression<Func<TArray, object>> projection);
-            new IOrderedArrayGremlinQuery<TArray, TQuery> ThenByDescending(Expression<Func<TArray, object>> projection);
-        }
+      
+        public partial interface IOrderedArrayGremlinQuery<TArray, TQuery> : IFluentTypedOrdered<TArray, IOrderedArrayGremlinQuery<TArray, TQuery>> { }
 
-              public partial interface IOrderedVertexGremlinQuery<TVertex>
-        {
-            new IOrderedVertexGremlinQuery<TVertex> ThenBy(Expression<Func<TVertex, object>> projection);
-            new IOrderedVertexGremlinQuery<TVertex> ThenByDescending(Expression<Func<TVertex, object>> projection);
-        }
+      
+        public partial interface IOrderedVertexGremlinQuery<TVertex> : IFluentTypedOrdered<TVertex, IOrderedVertexGremlinQuery<TVertex>> { }
 
-              public partial interface IOrderedEdgeGremlinQuery<TEdge>
-        {
-            new IOrderedEdgeGremlinQuery<TEdge> ThenBy(Expression<Func<TEdge, object>> projection);
-            new IOrderedEdgeGremlinQuery<TEdge> ThenByDescending(Expression<Func<TEdge, object>> projection);
-        }
+      
+        public partial interface IOrderedEdgeGremlinQuery<TEdge> : IFluentTypedOrdered<TEdge, IOrderedEdgeGremlinQuery<TEdge>> { }
 
-              public partial interface IOrderedEdgeGremlinQuery<TEdge, TAdjacentVertex>
-        {
-            new IOrderedEdgeGremlinQuery<TEdge, TAdjacentVertex> ThenBy(Expression<Func<TEdge, object>> projection);
-            new IOrderedEdgeGremlinQuery<TEdge, TAdjacentVertex> ThenByDescending(Expression<Func<TEdge, object>> projection);
-        }
+      
+        public partial interface IOrderedEdgeGremlinQuery<TEdge, TAdjacentVertex> : IFluentTypedOrdered<TEdge, IOrderedEdgeGremlinQuery<TEdge, TAdjacentVertex>> { }
 
-              public partial interface IOrderedEdgeGremlinQuery<TEdge, TOutVertex, TInVertex>
-        {
-            new IOrderedEdgeGremlinQuery<TEdge, TOutVertex, TInVertex> ThenBy(Expression<Func<TEdge, object>> projection);
-            new IOrderedEdgeGremlinQuery<TEdge, TOutVertex, TInVertex> ThenByDescending(Expression<Func<TEdge, object>> projection);
-        }
+      
+        public partial interface IOrderedEdgeGremlinQuery<TEdge, TOutVertex, TInVertex> : IFluentTypedOrdered<TEdge, IOrderedEdgeGremlinQuery<TEdge, TOutVertex, TInVertex>> { }
 
-              public partial interface IOrderedInEdgeGremlinQuery<TEdge, TInVertex>
-        {
-            new IOrderedInEdgeGremlinQuery<TEdge, TInVertex> ThenBy(Expression<Func<TEdge, object>> projection);
-            new IOrderedInEdgeGremlinQuery<TEdge, TInVertex> ThenByDescending(Expression<Func<TEdge, object>> projection);
-        }
+      
+        public partial interface IOrderedInEdgeGremlinQuery<TEdge, TInVertex> : IFluentTypedOrdered<TEdge, IOrderedInEdgeGremlinQuery<TEdge, TInVertex>> { }
 
-              public partial interface IOrderedOutEdgeGremlinQuery<TEdge, TOutVertex>
-        {
-            new IOrderedOutEdgeGremlinQuery<TEdge, TOutVertex> ThenBy(Expression<Func<TEdge, object>> projection);
-            new IOrderedOutEdgeGremlinQuery<TEdge, TOutVertex> ThenByDescending(Expression<Func<TEdge, object>> projection);
-        }
+      
+        public partial interface IOrderedOutEdgeGremlinQuery<TEdge, TOutVertex> : IFluentTypedOrdered<TEdge, IOrderedOutEdgeGremlinQuery<TEdge, TOutVertex>> { }
 
-              public partial interface IOrderedVertexPropertyGremlinQuery<TProperty, TValue>
-        {
-            new IOrderedVertexPropertyGremlinQuery<TProperty, TValue> ThenBy(Expression<Func<TProperty, object>> projection);
-            new IOrderedVertexPropertyGremlinQuery<TProperty, TValue> ThenByDescending(Expression<Func<TProperty, object>> projection);
-        }
+      
+        public partial interface IOrderedVertexPropertyGremlinQuery<TProperty, TValue> : IFluentTypedOrdered<TProperty, IOrderedVertexPropertyGremlinQuery<TProperty, TValue>> { }
 
-              public partial interface IOrderedVertexPropertyGremlinQuery<TProperty, TValue, TMeta>
-        {
-            new IOrderedVertexPropertyGremlinQuery<TProperty, TValue, TMeta> ThenBy(Expression<Func<TProperty, object>> projection);
-            new IOrderedVertexPropertyGremlinQuery<TProperty, TValue, TMeta> ThenByDescending(Expression<Func<TProperty, object>> projection);
-        }
+      
+        public partial interface IOrderedVertexPropertyGremlinQuery<TProperty, TValue, TMeta> : IFluentTypedOrdered<TProperty, IOrderedVertexPropertyGremlinQuery<TProperty, TValue, TMeta>> { }
 
-              public partial interface IOrderedPropertyGremlinQuery<TElement>
-        {
-            new IOrderedPropertyGremlinQuery<TElement> ThenBy(Expression<Func<TElement, object>> projection);
-            new IOrderedPropertyGremlinQuery<TElement> ThenByDescending(Expression<Func<TElement, object>> projection);
-        }
+      
+        public partial interface IOrderedPropertyGremlinQuery<TElement> : IFluentTypedOrdered<TElement, IOrderedPropertyGremlinQuery<TElement>> { }
 
       
 

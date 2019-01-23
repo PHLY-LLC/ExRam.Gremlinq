@@ -120,13 +120,10 @@ namespace ExRam.Gremlinq.Core
   
 
     
-    <# foreach(var iface in MakeOrdered(Typed(Qualified(baseInterfaces))))
+    <# foreach(var iface in Typed(Qualified(baseInterfaces)))
     { #>
-        public partial interface <#= iface #>
-        {
-            new <#= iface #> ThenBy(Expression<Func<<#= GetElement(iface) #>, object>> projection);
-            new <#= iface #> ThenByDescending(Expression<Func<<#= GetElement(iface) #>, object>> projection);
-        }
+
+        public partial interface <#= MakeOrdered(iface) #> : IFluentTypedOrdered<<#= GetElement(iface) #>, <#= MakeOrdered(iface) #>> { }
 
       <#
     } #>
