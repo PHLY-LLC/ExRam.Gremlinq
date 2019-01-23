@@ -105,6 +105,9 @@ namespace ExRam.Gremlinq.Core
 
     <# foreach(var iface in Qualified(baseInterfaces))
     { #>
+
+        public partial interface <#= MakeOrdered(iface) #> : IFluentOrdered<<#= iface #>, <#= MakeOrdered(iface) #>> { }
+
         public partial interface <#= iface #>
         {
             new <#= MakeOrdered(iface) #> OrderBy(Func<<#= iface #>, IGremlinQuery> traversal);
@@ -114,24 +117,10 @@ namespace ExRam.Gremlinq.Core
 
       <#
     } #>
-
-
-
-    <# foreach(var iface in MakeOrdered(Qualified(baseInterfaces)))
-    { #>
-        public partial interface <#= iface #>
-        {
-            <#= iface #> ThenBy(Func<<#= MakeUnordered(iface) #>, IGremlinQuery> traversal);
-            <#= iface #> ThenByDescending(Func<<#= MakeUnordered(iface) #>, IGremlinQuery> traversal);
-            new <#= iface #> ThenBy(string lambda);
-        }
-
-      <#
-    } #>
-    
+  
 
     
-    <# foreach(var iface in Typed(MakeOrdered(Qualified(baseInterfaces))))
+    <# foreach(var iface in MakeOrdered(Typed(Qualified(baseInterfaces))))
     { #>
         public partial interface <#= iface #>
         {
