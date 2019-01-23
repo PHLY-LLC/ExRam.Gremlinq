@@ -108,9 +108,9 @@ namespace ExRam.Gremlinq.Core
     foreach(var iface in MakeOrdered(Qualified(substitutedBaseInterfaces)))
     {
 #>
-        <#= iface #> <#= iface #>.ThenBy(Func<<#= MakeUnordered(iface) #>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        <#= iface #> <#= iface #>.ThenByDescending(Func<<#= MakeUnordered(iface) #>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        <#= iface #> <#= iface #>.ThenBy(string lambda) => By(lambda);
+        <#= iface #> IFluentOrdered<<#= MakeUnordered(iface) #>, <#= iface #>>.ThenBy(Func<<#= MakeUnordered(iface) #>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        <#= iface #> IFluentOrdered<<#= MakeUnordered(iface) #>, <#= iface #>>.ThenByDescending(Func<<#= MakeUnordered(iface) #>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        <#= iface #> IFluentOrdered<<#= MakeUnordered(iface) #>, <#= iface #>>.ThenBy(string lambda) => By(lambda);
 
 <#
     }

@@ -901,57 +901,57 @@ namespace ExRam.Gremlinq.Core
         IOrderedPropertyGremlinQuery<TElement> IPropertyGremlinQuery<TElement>.OrderBy(string lambda) => OrderBy(lambda);
         IOrderedPropertyGremlinQuery<TElement> IPropertyGremlinQuery<TElement>.OrderByDescending(Func<IPropertyGremlinQuery<TElement>, IGremlinQuery> traversal) => OrderBy(traversal, Order.Decreasing);
 
-        IOrderedVertexGremlinQuery IOrderedVertexGremlinQuery.ThenBy(Func<IVertexGremlinQuery, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedVertexGremlinQuery IOrderedVertexGremlinQuery.ThenByDescending(Func<IVertexGremlinQuery, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedVertexGremlinQuery IOrderedVertexGremlinQuery.ThenBy(string lambda) => By(lambda);
+        IOrderedVertexGremlinQuery IFluentOrdered<IVertexGremlinQuery, IOrderedVertexGremlinQuery>.ThenBy(Func<IVertexGremlinQuery, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedVertexGremlinQuery IFluentOrdered<IVertexGremlinQuery, IOrderedVertexGremlinQuery>.ThenByDescending(Func<IVertexGremlinQuery, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedVertexGremlinQuery IFluentOrdered<IVertexGremlinQuery, IOrderedVertexGremlinQuery>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedEdgeGremlinQuery IOrderedEdgeGremlinQuery.ThenBy(Func<IEdgeGremlinQuery, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedEdgeGremlinQuery IOrderedEdgeGremlinQuery.ThenByDescending(Func<IEdgeGremlinQuery, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedEdgeGremlinQuery IOrderedEdgeGremlinQuery.ThenBy(string lambda) => By(lambda);
+        IOrderedEdgeGremlinQuery IFluentOrdered<IEdgeGremlinQuery, IOrderedEdgeGremlinQuery>.ThenBy(Func<IEdgeGremlinQuery, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedEdgeGremlinQuery IFluentOrdered<IEdgeGremlinQuery, IOrderedEdgeGremlinQuery>.ThenByDescending(Func<IEdgeGremlinQuery, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedEdgeGremlinQuery IFluentOrdered<IEdgeGremlinQuery, IOrderedEdgeGremlinQuery>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedValueGremlinQuery<TElement> IOrderedValueGremlinQuery<TElement>.ThenBy(Func<IValueGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedValueGremlinQuery<TElement> IOrderedValueGremlinQuery<TElement>.ThenByDescending(Func<IValueGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedValueGremlinQuery<TElement> IOrderedValueGremlinQuery<TElement>.ThenBy(string lambda) => By(lambda);
+        IOrderedValueGremlinQuery<TElement> IFluentOrdered<IValueGremlinQuery<TElement>, IOrderedValueGremlinQuery<TElement>>.ThenBy(Func<IValueGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedValueGremlinQuery<TElement> IFluentOrdered<IValueGremlinQuery<TElement>, IOrderedValueGremlinQuery<TElement>>.ThenByDescending(Func<IValueGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedValueGremlinQuery<TElement> IFluentOrdered<IValueGremlinQuery<TElement>, IOrderedValueGremlinQuery<TElement>>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedArrayGremlinQuery<TElement, TFoldedQuery> IOrderedArrayGremlinQuery<TElement, TFoldedQuery>.ThenBy(Func<IArrayGremlinQuery<TElement, TFoldedQuery>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedArrayGremlinQuery<TElement, TFoldedQuery> IOrderedArrayGremlinQuery<TElement, TFoldedQuery>.ThenByDescending(Func<IArrayGremlinQuery<TElement, TFoldedQuery>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedArrayGremlinQuery<TElement, TFoldedQuery> IOrderedArrayGremlinQuery<TElement, TFoldedQuery>.ThenBy(string lambda) => By(lambda);
+        IOrderedArrayGremlinQuery<TElement, TFoldedQuery> IFluentOrdered<IArrayGremlinQuery<TElement, TFoldedQuery>, IOrderedArrayGremlinQuery<TElement, TFoldedQuery>>.ThenBy(Func<IArrayGremlinQuery<TElement, TFoldedQuery>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedArrayGremlinQuery<TElement, TFoldedQuery> IFluentOrdered<IArrayGremlinQuery<TElement, TFoldedQuery>, IOrderedArrayGremlinQuery<TElement, TFoldedQuery>>.ThenByDescending(Func<IArrayGremlinQuery<TElement, TFoldedQuery>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedArrayGremlinQuery<TElement, TFoldedQuery> IFluentOrdered<IArrayGremlinQuery<TElement, TFoldedQuery>, IOrderedArrayGremlinQuery<TElement, TFoldedQuery>>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedVertexGremlinQuery<TElement> IOrderedVertexGremlinQuery<TElement>.ThenBy(Func<IVertexGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedVertexGremlinQuery<TElement> IOrderedVertexGremlinQuery<TElement>.ThenByDescending(Func<IVertexGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedVertexGremlinQuery<TElement> IOrderedVertexGremlinQuery<TElement>.ThenBy(string lambda) => By(lambda);
+        IOrderedVertexGremlinQuery<TElement> IFluentOrdered<IVertexGremlinQuery<TElement>, IOrderedVertexGremlinQuery<TElement>>.ThenBy(Func<IVertexGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedVertexGremlinQuery<TElement> IFluentOrdered<IVertexGremlinQuery<TElement>, IOrderedVertexGremlinQuery<TElement>>.ThenByDescending(Func<IVertexGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedVertexGremlinQuery<TElement> IFluentOrdered<IVertexGremlinQuery<TElement>, IOrderedVertexGremlinQuery<TElement>>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedEdgeGremlinQuery<TElement> IOrderedEdgeGremlinQuery<TElement>.ThenBy(Func<IEdgeGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedEdgeGremlinQuery<TElement> IOrderedEdgeGremlinQuery<TElement>.ThenByDescending(Func<IEdgeGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedEdgeGremlinQuery<TElement> IOrderedEdgeGremlinQuery<TElement>.ThenBy(string lambda) => By(lambda);
+        IOrderedEdgeGremlinQuery<TElement> IFluentOrdered<IEdgeGremlinQuery<TElement>, IOrderedEdgeGremlinQuery<TElement>>.ThenBy(Func<IEdgeGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedEdgeGremlinQuery<TElement> IFluentOrdered<IEdgeGremlinQuery<TElement>, IOrderedEdgeGremlinQuery<TElement>>.ThenByDescending(Func<IEdgeGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedEdgeGremlinQuery<TElement> IFluentOrdered<IEdgeGremlinQuery<TElement>, IOrderedEdgeGremlinQuery<TElement>>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedEdgeGremlinQuery<TElement, TOutVertex> IOrderedEdgeGremlinQuery<TElement, TOutVertex>.ThenBy(Func<IEdgeGremlinQuery<TElement, TOutVertex>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedEdgeGremlinQuery<TElement, TOutVertex> IOrderedEdgeGremlinQuery<TElement, TOutVertex>.ThenByDescending(Func<IEdgeGremlinQuery<TElement, TOutVertex>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedEdgeGremlinQuery<TElement, TOutVertex> IOrderedEdgeGremlinQuery<TElement, TOutVertex>.ThenBy(string lambda) => By(lambda);
+        IOrderedEdgeGremlinQuery<TElement, TOutVertex> IFluentOrdered<IEdgeGremlinQuery<TElement, TOutVertex>, IOrderedEdgeGremlinQuery<TElement, TOutVertex>>.ThenBy(Func<IEdgeGremlinQuery<TElement, TOutVertex>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedEdgeGremlinQuery<TElement, TOutVertex> IFluentOrdered<IEdgeGremlinQuery<TElement, TOutVertex>, IOrderedEdgeGremlinQuery<TElement, TOutVertex>>.ThenByDescending(Func<IEdgeGremlinQuery<TElement, TOutVertex>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedEdgeGremlinQuery<TElement, TOutVertex> IFluentOrdered<IEdgeGremlinQuery<TElement, TOutVertex>, IOrderedEdgeGremlinQuery<TElement, TOutVertex>>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex> IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex>.ThenBy(Func<IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex> IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex>.ThenByDescending(Func<IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex> IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex>.ThenBy(string lambda) => By(lambda);
+        IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex> IFluentOrdered<IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>, IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex>>.ThenBy(Func<IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex> IFluentOrdered<IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>, IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex>>.ThenByDescending(Func<IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex> IFluentOrdered<IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>, IOrderedEdgeGremlinQuery<TElement, TOutVertex, TInVertex>>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedInEdgeGremlinQuery<TElement, TInVertex> IOrderedInEdgeGremlinQuery<TElement, TInVertex>.ThenBy(Func<IInEdgeGremlinQuery<TElement, TInVertex>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedInEdgeGremlinQuery<TElement, TInVertex> IOrderedInEdgeGremlinQuery<TElement, TInVertex>.ThenByDescending(Func<IInEdgeGremlinQuery<TElement, TInVertex>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedInEdgeGremlinQuery<TElement, TInVertex> IOrderedInEdgeGremlinQuery<TElement, TInVertex>.ThenBy(string lambda) => By(lambda);
+        IOrderedInEdgeGremlinQuery<TElement, TInVertex> IFluentOrdered<IInEdgeGremlinQuery<TElement, TInVertex>, IOrderedInEdgeGremlinQuery<TElement, TInVertex>>.ThenBy(Func<IInEdgeGremlinQuery<TElement, TInVertex>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedInEdgeGremlinQuery<TElement, TInVertex> IFluentOrdered<IInEdgeGremlinQuery<TElement, TInVertex>, IOrderedInEdgeGremlinQuery<TElement, TInVertex>>.ThenByDescending(Func<IInEdgeGremlinQuery<TElement, TInVertex>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedInEdgeGremlinQuery<TElement, TInVertex> IFluentOrdered<IInEdgeGremlinQuery<TElement, TInVertex>, IOrderedInEdgeGremlinQuery<TElement, TInVertex>>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedOutEdgeGremlinQuery<TElement, TOutVertex> IOrderedOutEdgeGremlinQuery<TElement, TOutVertex>.ThenBy(Func<IOutEdgeGremlinQuery<TElement, TOutVertex>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedOutEdgeGremlinQuery<TElement, TOutVertex> IOrderedOutEdgeGremlinQuery<TElement, TOutVertex>.ThenByDescending(Func<IOutEdgeGremlinQuery<TElement, TOutVertex>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedOutEdgeGremlinQuery<TElement, TOutVertex> IOrderedOutEdgeGremlinQuery<TElement, TOutVertex>.ThenBy(string lambda) => By(lambda);
+        IOrderedOutEdgeGremlinQuery<TElement, TOutVertex> IFluentOrdered<IOutEdgeGremlinQuery<TElement, TOutVertex>, IOrderedOutEdgeGremlinQuery<TElement, TOutVertex>>.ThenBy(Func<IOutEdgeGremlinQuery<TElement, TOutVertex>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedOutEdgeGremlinQuery<TElement, TOutVertex> IFluentOrdered<IOutEdgeGremlinQuery<TElement, TOutVertex>, IOrderedOutEdgeGremlinQuery<TElement, TOutVertex>>.ThenByDescending(Func<IOutEdgeGremlinQuery<TElement, TOutVertex>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedOutEdgeGremlinQuery<TElement, TOutVertex> IFluentOrdered<IOutEdgeGremlinQuery<TElement, TOutVertex>, IOrderedOutEdgeGremlinQuery<TElement, TOutVertex>>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue> IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue>.ThenBy(Func<IVertexPropertyGremlinQuery<TElement, TPropertyValue>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue> IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue>.ThenByDescending(Func<IVertexPropertyGremlinQuery<TElement, TPropertyValue>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue> IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue>.ThenBy(string lambda) => By(lambda);
+        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue> IFluentOrdered<IVertexPropertyGremlinQuery<TElement, TPropertyValue>, IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue>>.ThenBy(Func<IVertexPropertyGremlinQuery<TElement, TPropertyValue>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue> IFluentOrdered<IVertexPropertyGremlinQuery<TElement, TPropertyValue>, IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue>>.ThenByDescending(Func<IVertexPropertyGremlinQuery<TElement, TPropertyValue>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue> IFluentOrdered<IVertexPropertyGremlinQuery<TElement, TPropertyValue>, IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue>>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>.ThenBy(Func<IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>.ThenByDescending(Func<IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>.ThenBy(string lambda) => By(lambda);
+        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> IFluentOrdered<IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>, IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>>.ThenBy(Func<IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> IFluentOrdered<IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>, IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>>.ThenByDescending(Func<IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> IFluentOrdered<IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>, IOrderedVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>>.ThenBy(string lambda) => By(lambda);
 
-        IOrderedPropertyGremlinQuery<TElement> IOrderedPropertyGremlinQuery<TElement>.ThenBy(Func<IPropertyGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        IOrderedPropertyGremlinQuery<TElement> IOrderedPropertyGremlinQuery<TElement>.ThenByDescending(Func<IPropertyGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        IOrderedPropertyGremlinQuery<TElement> IOrderedPropertyGremlinQuery<TElement>.ThenBy(string lambda) => By(lambda);
+        IOrderedPropertyGremlinQuery<TElement> IFluentOrdered<IPropertyGremlinQuery<TElement>, IOrderedPropertyGremlinQuery<TElement>>.ThenBy(Func<IPropertyGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        IOrderedPropertyGremlinQuery<TElement> IFluentOrdered<IPropertyGremlinQuery<TElement>, IOrderedPropertyGremlinQuery<TElement>>.ThenByDescending(Func<IPropertyGremlinQuery<TElement>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        IOrderedPropertyGremlinQuery<TElement> IFluentOrdered<IPropertyGremlinQuery<TElement>, IOrderedPropertyGremlinQuery<TElement>>.ThenBy(string lambda) => By(lambda);
 
         IOrderedValueGremlinQuery<TElement> IOrderedValueGremlinQuery<TElement>.ThenBy(Expression<Func<TElement, object>> projection) => By(projection, Order.Increasing);
         IOrderedValueGremlinQuery<TElement> IOrderedValueGremlinQuery<TElement>.ThenByDescending(Expression<Func<TElement, object>> projection) => By(projection, Order.Decreasing);
