@@ -988,6 +988,26 @@ namespace ExRam.Gremlinq.Core
 
 
     
+        public partial interface IOrderedGremlinQuery : IFluentOrdered<IGremlinQuery, IOrderedGremlinQuery> { }
+
+        public partial interface IGremlinQuery
+        {
+            new IOrderedGremlinQuery OrderBy(Func<IGremlinQuery, IGremlinQuery> traversal);
+            new IOrderedGremlinQuery OrderBy(string lambda);
+            new IOrderedGremlinQuery OrderByDescending(Func<IGremlinQuery, IGremlinQuery> traversal);
+        }
+
+      
+        public partial interface IOrderedElementGremlinQuery : IFluentOrdered<IElementGremlinQuery, IOrderedElementGremlinQuery> { }
+
+        public partial interface IElementGremlinQuery
+        {
+            new IOrderedElementGremlinQuery OrderBy(Func<IElementGremlinQuery, IGremlinQuery> traversal);
+            new IOrderedElementGremlinQuery OrderBy(string lambda);
+            new IOrderedElementGremlinQuery OrderByDescending(Func<IElementGremlinQuery, IGremlinQuery> traversal);
+        }
+
+      
         public partial interface IOrderedVertexGremlinQuery : IFluentOrdered<IVertexGremlinQuery, IOrderedVertexGremlinQuery> { }
 
         public partial interface IVertexGremlinQuery
@@ -1008,6 +1028,16 @@ namespace ExRam.Gremlinq.Core
         }
 
       
+        public partial interface IOrderedGremlinQuery<TElement> : IFluentOrdered<IGremlinQuery<TElement>, IOrderedGremlinQuery<TElement>> { }
+
+        public partial interface IGremlinQuery<TElement>
+        {
+            new IOrderedGremlinQuery<TElement> OrderBy(Func<IGremlinQuery<TElement>, IGremlinQuery> traversal);
+            new IOrderedGremlinQuery<TElement> OrderBy(string lambda);
+            new IOrderedGremlinQuery<TElement> OrderByDescending(Func<IGremlinQuery<TElement>, IGremlinQuery> traversal);
+        }
+
+      
         public partial interface IOrderedValueGremlinQuery<TElement> : IFluentOrdered<IValueGremlinQuery<TElement>, IOrderedValueGremlinQuery<TElement>> { }
 
         public partial interface IValueGremlinQuery<TElement>
@@ -1025,6 +1055,16 @@ namespace ExRam.Gremlinq.Core
             new IOrderedArrayGremlinQuery<TArray, TQuery> OrderBy(Func<IArrayGremlinQuery<TArray, TQuery>, IGremlinQuery> traversal);
             new IOrderedArrayGremlinQuery<TArray, TQuery> OrderBy(string lambda);
             new IOrderedArrayGremlinQuery<TArray, TQuery> OrderByDescending(Func<IArrayGremlinQuery<TArray, TQuery>, IGremlinQuery> traversal);
+        }
+
+      
+        public partial interface IOrderedElementGremlinQuery<TElement> : IFluentOrdered<IElementGremlinQuery<TElement>, IOrderedElementGremlinQuery<TElement>> { }
+
+        public partial interface IElementGremlinQuery<TElement>
+        {
+            new IOrderedElementGremlinQuery<TElement> OrderBy(Func<IElementGremlinQuery<TElement>, IGremlinQuery> traversal);
+            new IOrderedElementGremlinQuery<TElement> OrderBy(string lambda);
+            new IOrderedElementGremlinQuery<TElement> OrderByDescending(Func<IElementGremlinQuery<TElement>, IGremlinQuery> traversal);
         }
 
       
@@ -1121,10 +1161,16 @@ namespace ExRam.Gremlinq.Core
 
     
     
+        public partial interface IOrderedGremlinQuery<TElement> : IFluentTypedOrdered<TElement, IOrderedGremlinQuery<TElement>> { }
+
+      
         public partial interface IOrderedValueGremlinQuery<TElement> : IFluentTypedOrdered<TElement, IOrderedValueGremlinQuery<TElement>> { }
 
       
         public partial interface IOrderedArrayGremlinQuery<TArray, TQuery> : IFluentTypedOrdered<TArray, IOrderedArrayGremlinQuery<TArray, TQuery>> { }
+
+      
+        public partial interface IOrderedElementGremlinQuery<TElement> : IFluentTypedOrdered<TElement, IOrderedElementGremlinQuery<TElement>> { }
 
       
         public partial interface IOrderedVertexGremlinQuery<TVertex> : IFluentTypedOrdered<TVertex, IOrderedVertexGremlinQuery<TVertex>> { }

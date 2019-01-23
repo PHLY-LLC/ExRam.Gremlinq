@@ -93,35 +93,27 @@ namespace ExRam.Gremlinq.Core
 
 
 
-    foreach(var iface in Qualified(substitutedBaseInterfaces))
+    foreach(var iface in substitutedBaseInterfaces)
     {
 #>
         <#= MakeOrdered(iface) #> <#= iface #>.OrderBy(Func<<#= iface #>, IGremlinQuery> traversal) => OrderBy(traversal, Order.Increasing);
         <#= MakeOrdered(iface) #> <#= iface #>.OrderBy(string lambda) => OrderBy(lambda);
         <#= MakeOrdered(iface) #> <#= iface #>.OrderByDescending(Func<<#= iface #>, IGremlinQuery> traversal) => OrderBy(traversal, Order.Decreasing);
 
-<#
-    }
-
-
-
-    foreach(var iface in MakeOrdered(Qualified(substitutedBaseInterfaces)))
-    {
-#>
-        <#= iface #> IFluentOrdered<<#= MakeUnordered(iface) #>, <#= iface #>>.ThenBy(Func<<#= MakeUnordered(iface) #>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
-        <#= iface #> IFluentOrdered<<#= MakeUnordered(iface) #>, <#= iface #>>.ThenByDescending(Func<<#= MakeUnordered(iface) #>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
-        <#= iface #> IFluentOrdered<<#= MakeUnordered(iface) #>, <#= iface #>>.ThenBy(string lambda) => By(lambda);
+        <#= MakeOrdered(iface) #> IFluentOrdered<<#= iface #>, <#= MakeOrdered(iface) #>>.ThenBy(Func<<#= MakeUnordered(iface) #>, IGremlinQuery> traversal) => By(traversal, Order.Increasing);
+        <#= MakeOrdered(iface) #> IFluentOrdered<<#= iface #>, <#= MakeOrdered(iface) #>>.ThenByDescending(Func<<#= MakeUnordered(iface) #>, IGremlinQuery> traversal) => By(traversal, Order.Decreasing);
+        <#= MakeOrdered(iface) #> IFluentOrdered<<#= iface #>, <#= MakeOrdered(iface) #>>.ThenBy(string lambda) => By(lambda);
 
 <#
     }
 
 
 
-    foreach(var iface in MakeOrdered(Typed(Qualified(substitutedBaseInterfaces))))
+    foreach(var iface in Typed(substitutedBaseInterfaces))
     {
 #>
-        <#= iface #> IFluentTypedOrdered<<#= GetElement(iface) #>, <#= iface #>>.ThenBy(Expression<Func<<#= GetElement(iface) #>, object>> projection) => By(projection, Order.Increasing);
-        <#= iface #> IFluentTypedOrdered<<#= GetElement(iface) #>, <#= iface #>>.ThenByDescending(Expression<Func<<#= GetElement(iface) #>, object>> projection) => By(projection, Order.Decreasing);
+        <#= MakeOrdered(iface) #> IFluentTypedOrdered<<#= GetElement(iface) #>, <#= MakeOrdered(iface) #>>.ThenBy(Expression<Func<<#= GetElement(iface) #>, object>> projection) => By(projection, Order.Increasing);
+        <#= MakeOrdered(iface) #> IFluentTypedOrdered<<#= GetElement(iface) #>, <#= MakeOrdered(iface) #>>.ThenByDescending(Expression<Func<<#= GetElement(iface) #>, object>> projection) => By(projection, Order.Decreasing);
 
 <#
     }
