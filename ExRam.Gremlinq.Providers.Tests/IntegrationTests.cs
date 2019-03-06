@@ -25,7 +25,7 @@ namespace ExRam.Gremlinq.Providers.Tests
 
             var data = await _g
                 .AddV(new Language { Id = id, IetfLanguageTag = "en" })
-                .ToArray();
+                .ToArrayAsync();
 
             data.Should().HaveCount(1);
             data[0].Id.Should().Be(id);
@@ -43,7 +43,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                     Name = "Bob",
                     RegistrationDate = now
                 })
-                .ToArray();
+                .ToArrayAsync();
 
             data.Should().HaveCount(1);
             data[0].RegistrationDate.Should().Be(now);
@@ -63,7 +63,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                     },
                     FoundingDate = now
                 })
-                .ToArray();
+                .ToArrayAsync();
 
             data.Should().HaveCount(1);
             data[0].FoundingDate.Should().Be(now);
@@ -78,7 +78,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                     StartTime = TimeSpan.FromHours(8),
                     Duration = TimeSpan.FromHours(4)
                 })
-                .ToArray();
+                .ToArrayAsync();
 
             data.Should().HaveCount(1);
             data[0].StartTime.Should().Be(TimeSpan.FromHours(8));
@@ -90,7 +90,7 @@ namespace ExRam.Gremlinq.Providers.Tests
         {
             var data = await _g
                 .AddV(new Language { IetfLanguageTag = "en" })
-                .ToArray();
+                .ToArrayAsync();
 
             data.Should().HaveCount(1);
             data[0].Id.Should().NotBeNull();
@@ -102,7 +102,7 @@ namespace ExRam.Gremlinq.Providers.Tests
         {
             var data = await _g
                 .AddV(new Language())
-                .ToArray();
+                .ToArrayAsync();
 
             data.Should().HaveCount(1);
             data[0].Id.Should().NotBeNull();
@@ -114,7 +114,7 @@ namespace ExRam.Gremlinq.Providers.Tests
         {
             var data = await _g
                 .AddV(new Company { PhoneNumbers = new[] { "+4912345", "+4923456" } })
-                .ToArray();
+                .ToArrayAsync();
 
             data.Should().HaveCount(1);
             data[0].PhoneNumbers.Should().BeEquivalentTo("+4912345", "+4923456");
@@ -125,7 +125,7 @@ namespace ExRam.Gremlinq.Providers.Tests
         {
             var data = await _g
                 .AddV(new Country { Name = "GER" })
-                .ToArray();
+                .ToArrayAsync();
 
             data.Should().HaveCount(1);
             data[0].Name.Value.Should().Be("GER");
@@ -146,7 +146,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                         }
                     }
                 })
-                .ToArray();
+                .ToArrayAsync();
 
             data.Should().HaveCount(1);
         }
@@ -156,7 +156,7 @@ namespace ExRam.Gremlinq.Providers.Tests
         {
             await _g
                 .AddV(new Person { Gender = Gender.Female })
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -165,7 +165,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Company>()
                 .Where(t => t.PhoneNumbers.Contains("+4912345"))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -174,7 +174,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Company>()
                 .Where(t => !t.PhoneNumbers.Contains("+4912345"))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -183,7 +183,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Company>()
                 .Where(t => t.PhoneNumbers.Any())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -192,7 +192,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Company>()
                 .Where(t => !t.PhoneNumbers.Any())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -201,7 +201,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Company>()
                 .Where(t => t.PhoneNumbers.Intersect(new[] { "+4912345", "+4923456" }).Any())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -210,7 +210,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Company>()
                 .Where(t => !t.PhoneNumbers.Intersect(new[] { "+4912345", "+4923456" }).Any())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -219,7 +219,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Company>()
                 .Where(t => t.PhoneNumbers.Intersect(new string[0]).Any())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -228,7 +228,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Company>()
                 .Where(t => !t.PhoneNumbers.Intersect(new string[0]).Any())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -237,7 +237,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => new[] { 36, 37, 38 }.Contains(t.Age))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -249,7 +249,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => enumerable.Contains(t.Age))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -260,7 +260,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => enumerable.Contains(t.Age))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -269,7 +269,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => !new[] { 36, 37, 38 }.Contains(t.Age))
-                .ToArray();
+                .ToArrayAsync();
         }
         
         [Fact(Skip = "Integration Test")]
@@ -281,7 +281,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => !enumerable.Contains(t.Age))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -292,7 +292,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => !enumerable.Contains(t.Age))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -301,7 +301,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Country>()
                 .Where(c => "+49123".StartsWith(c.CountryCallingCode))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -310,7 +310,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Country>()
                 .Where(c => "".StartsWith(c.CountryCallingCode))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -321,7 +321,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Country>()
                 .Where(c => str.StartsWith(c.CountryCallingCode))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -332,7 +332,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Country>()
                 .Where(c => str.Substring(0, 6).StartsWith(c.CountryCallingCode))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -341,7 +341,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Country>()
                 .Where(c => c.CountryCallingCode.StartsWith("+49"))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -350,7 +350,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Country>()
                 .Where(c => c.CountryCallingCode.StartsWith(""))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -359,7 +359,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Age == 36 || t.Age == 42)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -368,7 +368,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Name.Value == "Some name" || t.Age == 42)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -377,7 +377,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Age == 36 && t.Age == 42)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -386,7 +386,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Name.Value == "Some name" && (t.Age == 42 || t.Age == 99))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -395,7 +395,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Name == null && (t.Age == 42 || t.Age == 99))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -404,7 +404,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Age == 36 && t.Age == 42 && t.Age == 99)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -413,7 +413,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Age == 36 || t.Age == 42 || t.Age == 99)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -422,7 +422,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Name.Value == "Some name" && t.Age == 42)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -431,7 +431,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Age == 36)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -442,7 +442,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Age == i + i)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -451,7 +451,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => (object)t.Age == (object)36)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -460,7 +460,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Age != 36)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -469,7 +469,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Name == null)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -478,7 +478,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Name != null)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -487,7 +487,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Age < 36)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -496,7 +496,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Age <= 36)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -506,7 +506,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<TimeFrame>()
                 // ReSharper disable once RedundantBoolCompare
                 .Where(t => t.Enabled == true)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -515,7 +515,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<TimeFrame>()
                 .Where(t => t.Enabled == false)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -524,7 +524,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<TimeFrame>()
                 .Where(t => t.Enabled)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -533,7 +533,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<TimeFrame>()
                 .Where(t => !t.Enabled)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -542,7 +542,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Age > 36)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -551,7 +551,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(t => t.Age >= 36)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -560,7 +560,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Language>()
                 .Where(t => t.Id == (object)"1")
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -571,7 +571,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Language>()
                 .Where(t => t.Id == (object)local)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -582,7 +582,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Language>()
                 .Where(t => t.Id == (object)local.Value)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -595,7 +595,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .As(l)
                 .V<Language>()
                 .Where(l2 => l2 == l)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -609,7 +609,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .As(l)
                 .V<Language>()
                 .Where(l2 => l2.IetfLanguageTag == l)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -619,7 +619,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Person>()
                 .Values(x => x.Age)
                 .Where(_ => _ == 36)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -628,7 +628,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where(_ => _.Out<LivesIn>())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -640,7 +640,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                     x => x.Age,
                     _ => _
                         .Inject(36))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -658,7 +658,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .To(__ => __
                     .V<Country>()
                     .Where(t => t.CountryCallingCode == "+49"))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -670,7 +670,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                     .AddV(new Country { CountryCallingCode = "+49" })
                     .AddE<Speaks>()
                     .To(l))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -688,7 +688,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .From(__ => __
                     .V<Country>()
                     .Where(t => t.CountryCallingCode == "+49"))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -700,7 +700,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                     .AddV(new Language { IetfLanguageTag = "en" })
                     .AddE<Speaks>()
                     .From(c))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -712,7 +712,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .To(__ => __
                     .V<Country>("id"))
                 .InV()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -724,7 +724,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .To(__ => __
                     .V<Country>("id"))
                 .OutV()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -737,7 +737,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                         .InE<WorksFor>(),
                     __ => __
                         .OutE<LivesIn>())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -754,7 +754,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                                 .InE<WorksFor>(),
                             ___ => ___
                                 .OutE<WorksFor>()))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -767,7 +767,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                         .InE<WorksFor>(),
                     __ => __
                         .OutE<LivesIn>())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -784,7 +784,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                                 .InE<WorksFor>(),
                             ___ => ___
                                 .OutE<WorksFor>()))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -793,7 +793,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V()
                 .Drop()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -802,7 +802,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Where("it.property('str').value().length() == 2")
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -811,7 +811,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Out<WorksFor>()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -820,7 +820,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Out<Edge>()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -829,7 +829,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .OrderBy(x => x.Name)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -838,7 +838,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .OrderBy(__ => __.Values(x => x.Name))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -847,7 +847,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .OrderBy("it.property('str').value().length()")
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -856,7 +856,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .OrderByDescending(x => x.Name)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -865,7 +865,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .OrderByDescending(__ => __.Values(x => x.Name))
-                .ToArray();
+                .ToArrayAsync();
         }
         
         [Fact(Skip = "Integration Test")]
@@ -875,7 +875,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Person>()
                 .OrderBy(x => x.Name)
                 .ThenBy(x => x.Age)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -885,7 +885,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Person>()
                 .OrderBy(__ => __.Values(x => x.Name))
                 .ThenBy(__ => __.Gender)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -895,7 +895,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Person>()
                 .OrderBy("it.property('str1').value().length()")
                 .ThenBy("it.property('str2').value().length()")
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -905,7 +905,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Person>()
                 .OrderBy(x => x.Name)
                 .ThenByDescending(x => x.Age)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -915,7 +915,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Person>()
                 .OrderBy(__ => __.Values(x => x.Name))
                 .ThenByDescending(__ => __.Gender)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -925,7 +925,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Person>()
                 .Values(x => x.Age)
                 .SumLocal()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -935,7 +935,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Person>()
                 .Values(x => x.Age)
                 .SumGlobal()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -944,7 +944,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Values(x => x.Name)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -953,7 +953,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Values(x => x.Name, x => x.Id)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -962,7 +962,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Values(x => x.Name, x => x.Gender, x => x.Id)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -971,7 +971,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Values(x => x.Id)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -979,7 +979,7 @@ namespace ExRam.Gremlinq.Providers.Tests
         {
             await _g
                 .V()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -988,7 +988,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V()
                 .OfType<Authority>()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -999,7 +999,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .Repeat(__ => __
                     .Out<WorksFor>()
                     .OfType<Person>())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1010,7 +1010,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .Union(
                     __ => __.Out<WorksFor>(),
                     __ => __.Out<LivesIn>())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1020,7 +1020,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V()
                 .Optional(
                     __ => __.Out<WorksFor>())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1029,7 +1029,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V()
                 .Not(__ => __.Out<WorksFor>())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1038,7 +1038,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V()
                 .Not(__ => __.OfType<Language>())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1047,7 +1047,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V()
                 .Not(__ => __.OfType<Authority>())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1056,7 +1056,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .As(new StepLabel<Person>())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1068,7 +1068,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Person>()
                 .As(stepLabel)
                 .Select(stepLabel)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1079,7 +1079,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .As((_, stepLabel1) => _
                     .As((__, stepLabel2) => __
                         .Select(stepLabel1, stepLabel2)))
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1088,7 +1088,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>()
                 .Property(x => x.Age, 36)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1097,7 +1097,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Person>("id")
                 .Property(x => x.PhoneNumbers, "+4912345")
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1108,7 +1108,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .Coalesce(
                      _ => _
                         .Identity())
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1117,7 +1117,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V()
                 .Properties()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1126,7 +1126,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .V<Country>()
                 .Properties(x => x.Name)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1136,7 +1136,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Country>()
                 .Properties(x => x.Languages)
                 .Where(x => x.Value == "de")
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1146,7 +1146,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Country>()
                 .Properties(x => x.Languages)
                 .Where(x => "de" == x.Value)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1156,7 +1156,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .V<Country>()
                 .Properties(x => x.Name)
                 .Properties()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1167,7 +1167,7 @@ namespace ExRam.Gremlinq.Providers.Tests
                 .Properties(x => x.Name)
                 .Meta<PropertyValidity>()
                 .Properties(x => x.ValidFrom)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1175,7 +1175,7 @@ namespace ExRam.Gremlinq.Providers.Tests
         {
             await _g
                 .Inject(36, 37, 38)
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1184,7 +1184,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .WithStrategies(new SubgraphQueryStrategy(_ => _.OfType<Person>(), _ => _))
                 .V()
-                .ToArray();
+                .ToArrayAsync();
         }
 
         [Fact(Skip = "Integration Test")]
@@ -1193,7 +1193,7 @@ namespace ExRam.Gremlinq.Providers.Tests
             await _g
                 .WithStrategies(new SubgraphQueryStrategy(_ => _, _ => _))
                 .V()
-                .ToArray();
+                .ToArrayAsync();
         }
     }
 }
