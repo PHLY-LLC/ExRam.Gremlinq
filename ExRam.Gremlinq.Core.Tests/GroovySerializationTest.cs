@@ -703,32 +703,32 @@ namespace ExRam.Gremlinq.Core.Tests
         }
 
         [Fact]
-        public void Limit_underflow()
+        public void Take_underflow()
         {
             g
                 .V()
-                .Invoking(_ => _.Limit(-1))
+                .Invoking(_ => _.Take(-1))
                 .Should()
                 .Throw<ArgumentException>();
         }
 
         [Fact]
-        public void LimitGlobal()
+        public void TakeGlobal()
         {
             g
                 .V()
-                .Limit(1)
+                .Take(1)
                 .Should()
                 .SerializeToGroovy<TVisitor>("g.V().limit(_a)")
                 .WithParameters(1);
         }
 
         [Fact]
-        public void LimitLocal()
+        public void TakeLocal()
         {
             g
                 .V()
-                .LimitLocal(1)
+                .TakeLocal(1)
                 .Should()
                 .SerializeToGroovy<TVisitor>("g.V().limit(local, _a)")
                 .WithParameters(1);

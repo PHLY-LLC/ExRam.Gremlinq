@@ -31,8 +31,8 @@ namespace ExRam.Gremlinq.Core
 
             IGremlinQuery IGremlinQuery.Identity() => Identity();
 
-            IGremlinQuery IGremlinQuery.Limit(long count) => Limit(count);
-            IGremlinQuery IGremlinQuery.LimitLocal(long count) => LimitLocal(count);
+            IGremlinQuery IGremlinQuery.Take(long count) => Take(count);
+            IGremlinQuery IGremlinQuery.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IGremlinQuery.Local<TTargetQuery>(Func<IGremlinQuery , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -85,8 +85,8 @@ namespace ExRam.Gremlinq.Core
 
             IElementGremlinQuery IElementGremlinQuery.Identity() => Identity();
 
-            IElementGremlinQuery IElementGremlinQuery.Limit(long count) => Limit(count);
-            IElementGremlinQuery IElementGremlinQuery.LimitLocal(long count) => LimitLocal(count);
+            IElementGremlinQuery IElementGremlinQuery.Take(long count) => Take(count);
+            IElementGremlinQuery IElementGremlinQuery.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IElementGremlinQuery.Local<TTargetQuery>(Func<IElementGremlinQuery , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -139,8 +139,8 @@ namespace ExRam.Gremlinq.Core
 
             IVertexGremlinQuery IVertexGremlinQuery.Identity() => Identity();
 
-            IVertexGremlinQuery IVertexGremlinQuery.Limit(long count) => Limit(count);
-            IVertexGremlinQuery IVertexGremlinQuery.LimitLocal(long count) => LimitLocal(count);
+            IVertexGremlinQuery IVertexGremlinQuery.Take(long count) => Take(count);
+            IVertexGremlinQuery IVertexGremlinQuery.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IVertexGremlinQuery.Local<TTargetQuery>(Func<IVertexGremlinQuery , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -193,8 +193,8 @@ namespace ExRam.Gremlinq.Core
 
             IEdgeGremlinQuery IEdgeGremlinQuery.Identity() => Identity();
 
-            IEdgeGremlinQuery IEdgeGremlinQuery.Limit(long count) => Limit(count);
-            IEdgeGremlinQuery IEdgeGremlinQuery.LimitLocal(long count) => LimitLocal(count);
+            IEdgeGremlinQuery IEdgeGremlinQuery.Take(long count) => Take(count);
+            IEdgeGremlinQuery IEdgeGremlinQuery.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IEdgeGremlinQuery.Local<TTargetQuery>(Func<IEdgeGremlinQuery , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -247,8 +247,8 @@ namespace ExRam.Gremlinq.Core
 
             IGremlinQuery<TElement> IGremlinQuery<TElement>.Identity() => Identity();
 
-            IGremlinQuery<TElement> IGremlinQuery<TElement>.Limit(long count) => Limit(count);
-            IGremlinQuery<TElement> IGremlinQuery<TElement>.LimitLocal(long count) => LimitLocal(count);
+            IGremlinQuery<TElement> IGremlinQuery<TElement>.Take(long count) => Take(count);
+            IGremlinQuery<TElement> IGremlinQuery<TElement>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IGremlinQuery<TElement>.Local<TTargetQuery>(Func<IGremlinQuery<TElement> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -301,8 +301,8 @@ namespace ExRam.Gremlinq.Core
 
             IValueGremlinQuery<TElement> IValueGremlinQuery<TElement>.Identity() => Identity();
 
-            IValueGremlinQuery<TElement> IValueGremlinQuery<TElement>.Limit(long count) => Limit(count);
-            IValueGremlinQuery<TElement> IValueGremlinQuery<TElement>.LimitLocal(long count) => LimitLocal(count);
+            IValueGremlinQuery<TElement> IValueGremlinQuery<TElement>.Take(long count) => Take(count);
+            IValueGremlinQuery<TElement> IValueGremlinQuery<TElement>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IValueGremlinQuery<TElement>.Local<TTargetQuery>(Func<IValueGremlinQuery<TElement> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -355,8 +355,8 @@ namespace ExRam.Gremlinq.Core
 
             IArrayGremlinQuery<TElement, TFoldedQuery> IArrayGremlinQuery<TElement, TFoldedQuery>.Identity() => Identity();
 
-            IArrayGremlinQuery<TElement, TFoldedQuery> IArrayGremlinQuery<TElement, TFoldedQuery>.Limit(long count) => Limit(count);
-            IArrayGremlinQuery<TElement, TFoldedQuery> IArrayGremlinQuery<TElement, TFoldedQuery>.LimitLocal(long count) => LimitLocal(count);
+            IArrayGremlinQuery<TElement, TFoldedQuery> IArrayGremlinQuery<TElement, TFoldedQuery>.Take(long count) => Take(count);
+            IArrayGremlinQuery<TElement, TFoldedQuery> IArrayGremlinQuery<TElement, TFoldedQuery>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IArrayGremlinQuery<TElement, TFoldedQuery>.Local<TTargetQuery>(Func<IArrayGremlinQuery<TElement, TFoldedQuery> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -409,8 +409,8 @@ namespace ExRam.Gremlinq.Core
 
             IElementGremlinQuery<TElement> IElementGremlinQuery<TElement>.Identity() => Identity();
 
-            IElementGremlinQuery<TElement> IElementGremlinQuery<TElement>.Limit(long count) => Limit(count);
-            IElementGremlinQuery<TElement> IElementGremlinQuery<TElement>.LimitLocal(long count) => LimitLocal(count);
+            IElementGremlinQuery<TElement> IElementGremlinQuery<TElement>.Take(long count) => Take(count);
+            IElementGremlinQuery<TElement> IElementGremlinQuery<TElement>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IElementGremlinQuery<TElement>.Local<TTargetQuery>(Func<IElementGremlinQuery<TElement> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -463,8 +463,8 @@ namespace ExRam.Gremlinq.Core
 
             IVertexGremlinQuery<TElement> IVertexGremlinQuery<TElement>.Identity() => Identity();
 
-            IVertexGremlinQuery<TElement> IVertexGremlinQuery<TElement>.Limit(long count) => Limit(count);
-            IVertexGremlinQuery<TElement> IVertexGremlinQuery<TElement>.LimitLocal(long count) => LimitLocal(count);
+            IVertexGremlinQuery<TElement> IVertexGremlinQuery<TElement>.Take(long count) => Take(count);
+            IVertexGremlinQuery<TElement> IVertexGremlinQuery<TElement>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IVertexGremlinQuery<TElement>.Local<TTargetQuery>(Func<IVertexGremlinQuery<TElement> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -517,8 +517,8 @@ namespace ExRam.Gremlinq.Core
 
             IEdgeGremlinQuery<TElement> IEdgeGremlinQuery<TElement>.Identity() => Identity();
 
-            IEdgeGremlinQuery<TElement> IEdgeGremlinQuery<TElement>.Limit(long count) => Limit(count);
-            IEdgeGremlinQuery<TElement> IEdgeGremlinQuery<TElement>.LimitLocal(long count) => LimitLocal(count);
+            IEdgeGremlinQuery<TElement> IEdgeGremlinQuery<TElement>.Take(long count) => Take(count);
+            IEdgeGremlinQuery<TElement> IEdgeGremlinQuery<TElement>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IEdgeGremlinQuery<TElement>.Local<TTargetQuery>(Func<IEdgeGremlinQuery<TElement> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -571,8 +571,8 @@ namespace ExRam.Gremlinq.Core
 
             IEdgeGremlinQuery<TElement, TOutVertex> IEdgeGremlinQuery<TElement, TOutVertex>.Identity() => Identity();
 
-            IEdgeGremlinQuery<TElement, TOutVertex> IEdgeGremlinQuery<TElement, TOutVertex>.Limit(long count) => Limit(count);
-            IEdgeGremlinQuery<TElement, TOutVertex> IEdgeGremlinQuery<TElement, TOutVertex>.LimitLocal(long count) => LimitLocal(count);
+            IEdgeGremlinQuery<TElement, TOutVertex> IEdgeGremlinQuery<TElement, TOutVertex>.Take(long count) => Take(count);
+            IEdgeGremlinQuery<TElement, TOutVertex> IEdgeGremlinQuery<TElement, TOutVertex>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IEdgeGremlinQuery<TElement, TOutVertex>.Local<TTargetQuery>(Func<IEdgeGremlinQuery<TElement, TOutVertex> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -625,8 +625,8 @@ namespace ExRam.Gremlinq.Core
 
             IEdgeGremlinQuery<TElement, TOutVertex, TInVertex> IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>.Identity() => Identity();
 
-            IEdgeGremlinQuery<TElement, TOutVertex, TInVertex> IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>.Limit(long count) => Limit(count);
-            IEdgeGremlinQuery<TElement, TOutVertex, TInVertex> IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>.LimitLocal(long count) => LimitLocal(count);
+            IEdgeGremlinQuery<TElement, TOutVertex, TInVertex> IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>.Take(long count) => Take(count);
+            IEdgeGremlinQuery<TElement, TOutVertex, TInVertex> IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IEdgeGremlinQuery<TElement, TOutVertex, TInVertex>.Local<TTargetQuery>(Func<IEdgeGremlinQuery<TElement, TOutVertex, TInVertex> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -679,8 +679,8 @@ namespace ExRam.Gremlinq.Core
 
             IInEdgeGremlinQuery<TElement, TInVertex> IInEdgeGremlinQuery<TElement, TInVertex>.Identity() => Identity();
 
-            IInEdgeGremlinQuery<TElement, TInVertex> IInEdgeGremlinQuery<TElement, TInVertex>.Limit(long count) => Limit(count);
-            IInEdgeGremlinQuery<TElement, TInVertex> IInEdgeGremlinQuery<TElement, TInVertex>.LimitLocal(long count) => LimitLocal(count);
+            IInEdgeGremlinQuery<TElement, TInVertex> IInEdgeGremlinQuery<TElement, TInVertex>.Take(long count) => Take(count);
+            IInEdgeGremlinQuery<TElement, TInVertex> IInEdgeGremlinQuery<TElement, TInVertex>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IInEdgeGremlinQuery<TElement, TInVertex>.Local<TTargetQuery>(Func<IInEdgeGremlinQuery<TElement, TInVertex> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -733,8 +733,8 @@ namespace ExRam.Gremlinq.Core
 
             IOutEdgeGremlinQuery<TElement, TOutVertex> IOutEdgeGremlinQuery<TElement, TOutVertex>.Identity() => Identity();
 
-            IOutEdgeGremlinQuery<TElement, TOutVertex> IOutEdgeGremlinQuery<TElement, TOutVertex>.Limit(long count) => Limit(count);
-            IOutEdgeGremlinQuery<TElement, TOutVertex> IOutEdgeGremlinQuery<TElement, TOutVertex>.LimitLocal(long count) => LimitLocal(count);
+            IOutEdgeGremlinQuery<TElement, TOutVertex> IOutEdgeGremlinQuery<TElement, TOutVertex>.Take(long count) => Take(count);
+            IOutEdgeGremlinQuery<TElement, TOutVertex> IOutEdgeGremlinQuery<TElement, TOutVertex>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IOutEdgeGremlinQuery<TElement, TOutVertex>.Local<TTargetQuery>(Func<IOutEdgeGremlinQuery<TElement, TOutVertex> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -787,8 +787,8 @@ namespace ExRam.Gremlinq.Core
 
             IVertexPropertyGremlinQuery<TElement, TPropertyValue> IVertexPropertyGremlinQuery<TElement, TPropertyValue>.Identity() => Identity();
 
-            IVertexPropertyGremlinQuery<TElement, TPropertyValue> IVertexPropertyGremlinQuery<TElement, TPropertyValue>.Limit(long count) => Limit(count);
-            IVertexPropertyGremlinQuery<TElement, TPropertyValue> IVertexPropertyGremlinQuery<TElement, TPropertyValue>.LimitLocal(long count) => LimitLocal(count);
+            IVertexPropertyGremlinQuery<TElement, TPropertyValue> IVertexPropertyGremlinQuery<TElement, TPropertyValue>.Take(long count) => Take(count);
+            IVertexPropertyGremlinQuery<TElement, TPropertyValue> IVertexPropertyGremlinQuery<TElement, TPropertyValue>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IVertexPropertyGremlinQuery<TElement, TPropertyValue>.Local<TTargetQuery>(Func<IVertexPropertyGremlinQuery<TElement, TPropertyValue> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -841,8 +841,8 @@ namespace ExRam.Gremlinq.Core
 
             IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>.Identity() => Identity();
 
-            IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>.Limit(long count) => Limit(count);
-            IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>.LimitLocal(long count) => LimitLocal(count);
+            IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>.Take(long count) => Take(count);
+            IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta>.Local<TTargetQuery>(Func<IVertexPropertyGremlinQuery<TElement, TPropertyValue, TMeta> , TTargetQuery> localTraversal) => Local(localTraversal);
 
@@ -895,8 +895,8 @@ namespace ExRam.Gremlinq.Core
 
             IPropertyGremlinQuery<TElement> IPropertyGremlinQuery<TElement>.Identity() => Identity();
 
-            IPropertyGremlinQuery<TElement> IPropertyGremlinQuery<TElement>.Limit(long count) => Limit(count);
-            IPropertyGremlinQuery<TElement> IPropertyGremlinQuery<TElement>.LimitLocal(long count) => LimitLocal(count);
+            IPropertyGremlinQuery<TElement> IPropertyGremlinQuery<TElement>.Take(long count) => Take(count);
+            IPropertyGremlinQuery<TElement> IPropertyGremlinQuery<TElement>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery IPropertyGremlinQuery<TElement>.Local<TTargetQuery>(Func<IPropertyGremlinQuery<TElement> , TTargetQuery> localTraversal) => Local(localTraversal);
 

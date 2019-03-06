@@ -283,9 +283,9 @@ namespace ExRam.Gremlinq.Core
 
         private GremlinQuery<TElement, TOutVertex, TInVertex, TPropertyValue, TMeta, TFoldedQuery> Emit() => AddStep(EmitStep.Instance);
 
-        private ValueTask<TElement> FirstAsync(CancellationToken ct) => ((IAsyncEnumerable<TElement>)Limit(1)).FirstAsync(ct);
+        private ValueTask<TElement> FirstAsync(CancellationToken ct) => ((IAsyncEnumerable<TElement>)Take(1)).FirstAsync(ct);
 
-        private ValueTask<TElement> FirstOrDefaultAsync(CancellationToken ct) => ((IAsyncEnumerable<TElement>)Limit(1)).FirstOrDefaultAsync(ct);
+        private ValueTask<TElement> FirstOrDefaultAsync(CancellationToken ct) => ((IAsyncEnumerable<TElement>)Take(1)).FirstOrDefaultAsync(ct);
 
         private TTargetQuery FlatMap<TTargetQuery>(Func<GremlinQuery<TElement, TOutVertex, TInVertex, TPropertyValue, TMeta, TFoldedQuery>, TTargetQuery> mapping) where TTargetQuery : IGremlinQuery
         {
@@ -369,14 +369,14 @@ namespace ExRam.Gremlinq.Core
 
         private GremlinQuery<string, Unit, Unit, Unit, Unit, Unit> Label() => AddStep<string, Unit, Unit, Unit, Unit, Unit>(LabelStep.Instance);
 
-        private GremlinQuery<TElement, TOutVertex, TInVertex, TPropertyValue, TMeta, TFoldedQuery> Limit(long count)
+        private GremlinQuery<TElement, TOutVertex, TInVertex, TPropertyValue, TMeta, TFoldedQuery> Take(long count)
         {
             return AddStep(count == 1
                 ? LimitStep.LimitGlobal1
                 : new LimitStep(count, Scope.Global));
         }
 
-        private GremlinQuery<TElement, TOutVertex, TInVertex, TPropertyValue, TMeta, TFoldedQuery> LimitLocal(long count)
+        private GremlinQuery<TElement, TOutVertex, TInVertex, TPropertyValue, TMeta, TFoldedQuery> TakeLocal(long count)
         {
             return AddStep(count == 1
                 ? LimitStep.LimitLocal1

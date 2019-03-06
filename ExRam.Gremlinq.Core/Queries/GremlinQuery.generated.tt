@@ -40,8 +40,8 @@ namespace ExRam.Gremlinq.Core
 
             <#= iface #> <#= iface #>.Identity() => Identity();
 
-            <#= iface #> <#= iface #>.Limit(long count) => Limit(count);
-            <#= iface #> <#= iface #>.LimitLocal(long count) => LimitLocal(count);
+            <#= iface #> <#= iface #>.Take(long count) => Take(count);
+            <#= iface #> <#= iface #>.TakeLocal(long count) => TakeLocal(count);
 
             TTargetQuery <#= iface #>.Local<TTargetQuery>(Func<<#= iface #> , TTargetQuery> localTraversal) => Local(localTraversal);
 

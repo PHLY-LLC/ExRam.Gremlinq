@@ -10,11 +10,11 @@ namespace ExRam.Gremlinq.Providers.CosmosDb.Tests
     public class GroovySerializationTest : GroovySerializationTest<CosmosDbGroovyGremlinQueryElementVisitor>
     {
         [Fact]
-        public void Limit_overflow()
+        public void Take_overflow()
         {
             g
                 .V()
-                .Limit((long)int.MaxValue + 1)
+                .Take((long)int.MaxValue + 1)
                 .Invoking(x => new CosmosDbGroovyGremlinQueryElementVisitor().Visit(x))
                 .Should()
                 .Throw<ArgumentOutOfRangeException>();
